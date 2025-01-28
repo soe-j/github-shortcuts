@@ -12,14 +12,22 @@ chrome.runtime.onMessage.addListener(async ({ command }) => {
         .click();
       (await findElement('[aria-label="Edit comment"]')).click();
       break;
-    case "ready-for-review":
-      (
-        await findElement(
+    case "confirm":
+      const readyButton = document
+        .querySelector(
           `form[action="${document.location.pathname}/ready_for_review"]`
         )
-      )
-        .querySelector('button[type="submit"]')
-        .click();
+        ?.querySelector('button[type="submit"]');
+      if (readyButton) {
+        readyButton.click();
+        break;
+      }
+      const mergeButton = findElementByContent("Confirm merge");
+      if (mergeButton) {
+        mergeButton.click();
+        break;
+      }
+      log("no confirm button found");
       break;
     case "change-tab":
       if (document.location.pathname.match(/^(\/.+\/.+\/pull\/\d+)$/)) {
@@ -54,4 +62,11 @@ const findElement = async (selector) => {
   }
   log("found element", selector);
   return document.querySelector(selector);
+};
+const findElementByContent = (content) => {
+  for (const e of document.querySelectorAll("button").values()) {
+    if (e.innerText.match(content)) {
+      return e;
+    }
+  }
 };

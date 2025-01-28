@@ -19,12 +19,12 @@
       },
       "description": "edit comment of PullRequest"
     },
-    "ready-for-review": {
+    "confirm": {
       "suggested_key": {
-        "default": "Ctrl+R",
-        "mac": "MacCtrl+R"
+        "default": "Ctrl+G",
+        "mac": "MacCtrl+G"
       },
-      "description": "ready for review"
+      "description": "push 'Ready for review' or 'Merge pull request' button"
     },
     "change-tab": {
       "suggested_key": {
