@@ -10,6 +10,15 @@ chrome.runtime.onMessage.addListener(async ({ command }) => {
         .click();
       (await findElement('[aria-label="Edit comment"]')).click();
       break;
+    case "ready-for-review":
+      (
+        await findElement(
+          `form[action="${document.location.pathname}/ready_for_review"]`
+        )
+      )
+        .querySelector('button[type="submit"]')
+        .click();
+      break;
   }
 });
 

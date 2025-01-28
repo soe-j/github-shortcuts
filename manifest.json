@@ -18,6 +18,13 @@
         "mac": "MacCtrl+C"
       },
       "description": "edit comment of PullRequest"
+    },
+    "ready-for-review": {
+      "suggested_key": {
+        "default": "Ctrl+R",
+        "mac": "MacCtrl+R"
+      },
+      "description": "ready for review"
     }
   },
   "background": {
