@@ -14,8 +14,8 @@
     },
     "edit-comment": {
       "suggested_key": {
-        "default": "Ctrl+C",
-        "mac": "MacCtrl+C"
+        "default": "Ctrl+E",
+        "mac": "MacCtrl+E"
       },
       "description": "edit comment of PullRequest"
     },
