@@ -1,4 +1,6 @@
 chrome.runtime.onMessage.addListener(async ({ command }) => {
+  log("received command", command);
+
   switch (command) {
     case "edit-title":
       (await findElement('[aria-label="Edit Pull Request title"]')).click();
@@ -35,6 +37,10 @@ chrome.runtime.onMessage.addListener(async ({ command }) => {
         ).click();
       }
       break;
+
+    default: {
+      log("unknown command", command);
+    }
   }
 });
 
@@ -46,5 +52,6 @@ const findElement = async (selector) => {
     log("waiting for element", selector);
     await wait(100);
   }
+  log("found element", selector);
   return document.querySelector(selector);
 };
