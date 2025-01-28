@@ -1,0 +1,46 @@
+{
+  "name": "Github Shortcuts",
+  "description": "You can command GitHub with just shortcuts",
+  "version": "1.0",
+  "manifest_version": 3,
+  "permissions": ["activeTab"],
+  "commands": {
+    "edit-title": {
+      "suggested_key": {
+        "default": "Ctrl+T",
+        "mac": "MacCtrl+T"
+      },
+      "description": "edit title of PullRequest"
+    },
+    "edit-comment": {
+      "suggested_key": {
+        "default": "Ctrl+C",
+        "mac": "MacCtrl+C"
+      },
+      "description": "edit comment of PullRequest"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_icon": {
+      "16": "/images/github-mark-white.png",
+      "32": "/images/github-mark-white.png",
+      "48": "/images/github-mark-white.png",
+      "128": "/images/github-mark-white.png"
+    }
+  },
+  "icons": {
+    "16": "/images/github-mark-white.png",
+    "32": "/images/github-mark-white.png",
+    "48": "/images/github-mark-white.png",
+    "128": "/images/github-mark-white.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://github.com/*/*/pull/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
