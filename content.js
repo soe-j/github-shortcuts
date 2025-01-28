@@ -19,6 +19,22 @@ chrome.runtime.onMessage.addListener(async ({ command }) => {
         .querySelector('button[type="submit"]')
         .click();
       break;
+    case "change-tab":
+      if (document.location.pathname.match(/^(\/.+\/.+\/pull\/\d+)$/)) {
+        (
+          await findElement(`a[href="${document.location.pathname}/files"]`)
+        ).click();
+      } else {
+        (
+          await findElement(
+            `a[href="${document.location.pathname.replace(
+              /(\/.+\/.+\/pull\/\d+)(\/.+)/,
+              "$1"
+            )}"]`
+          )
+        ).click();
+      }
+      break;
   }
 });
 

@@ -25,6 +25,13 @@
         "mac": "MacCtrl+R"
       },
       "description": "ready for review"
+    },
+    "change-tab": {
+      "suggested_key": {
+        "default": "Ctrl+A",
+        "mac": "MacCtrl+A"
+      },
+      "description": "go to conversation or files tab"
     }
   },
   "background": {
