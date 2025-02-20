@@ -13,21 +13,25 @@ chrome.runtime.onMessage.addListener(async ({ command }) => {
       (await findElement('[aria-label="Edit comment"]')).click();
       break;
     case "confirm":
-      const readyButton = document
-        .querySelector(
-          `form[action="${document.location.pathname}/ready_for_review"]`
-        )
-        ?.querySelector('button[type="submit"]');
+      const readyButton = findElementByContent("Ready for review");
       if (readyButton) {
         readyButton.click();
         break;
       }
-      const mergeButton = findElementByContent("Confirm merge");
-      if (mergeButton) {
-        mergeButton.click();
+
+      const mergeButton = findElementByContent("Merge pull request");
+      if (!mergeButton) {
+        log("no merge button found");
         break;
       }
-      log("no confirm button found");
+      mergeButton.click();
+      await wait(100);
+      const confirmButton = findElementByContent("Confirm merge");
+      if (!confirmButton) {
+        log("no confirm button found");
+        break;
+      }
+      confirmButton.click();
       break;
     case "change-tab":
       if (document.location.pathname.match(/^(\/.+\/.+\/pull\/\d+)$/)) {
