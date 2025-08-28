@@ -3,7 +3,7 @@
   "description": "You can command GitHub with just shortcuts",
   "version": "1.0",
   "manifest_version": 3,
-  "permissions": ["activeTab"],
+  "permissions": ["activeTab", "tabs", "commands"],
   "commands": {
     "edit-title": {
       "suggested_key": {
