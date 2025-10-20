@@ -7,29 +7,29 @@
   "commands": {
     "edit-title": {
       "suggested_key": {
-        "default": "Ctrl+T",
-        "mac": "MacCtrl+T"
+        "default": "Alt+T",
+        "mac": "Alt+T"
       },
       "description": "edit title of PullRequest"
     },
     "edit-comment": {
       "suggested_key": {
-        "default": "Ctrl+E",
-        "mac": "MacCtrl+E"
+        "default": "Alt+E",
+        "mac": "Alt+E"
       },
       "description": "edit comment of PullRequest"
     },
     "confirm": {
       "suggested_key": {
-        "default": "Ctrl+G",
-        "mac": "MacCtrl+G"
+        "default": "Alt+G",
+        "mac": "Alt+G"
       },
       "description": "push 'Ready for review' or 'Merge pull request' button"
     },
     "change-tab": {
       "suggested_key": {
-        "default": "Ctrl+A",
-        "mac": "MacCtrl+A"
+        "default": "Alt+A",
+        "mac": "Alt+A"
       },
       "description": "go to conversation or files tab"
     }
